@@ -1,49 +1,51 @@
 #include <stdio.h>
 
+// Definindo a estrutura para a carta do país
+struct CartaPais {
+    char nome[50];
+    int populacao;    // em milhões
+    float pib;        // em trilhões de dólares
+    float area;       // em milhões de km²
+};
+
 int main() {
-    char nome1[50], nome2[50];
-    long pop1, pop2;
-    float area1, area2, pib1, pib2;
-    int pontos1, pontos2;
+    struct CartaPais pais1, pais2;
 
-    // Entrada de dados para o primeiro país
-    printf("Digite o nome do primeiro país: ");
-    scanf(" %[^\n]", nome1);
+    // Leitura dos dados do primeiro país
+    printf("Digite o nome do primeiro país (sem espaços): ");
+    scanf("%s", pais1.nome);
 
-    printf("Digite a população (em milhões): ");
-    scanf("%ld", &pop1);
+    printf("População (em milhões): ");
+    scanf("%d", &pais1.populacao);
 
-    printf("Digite a área (em milhões de km²): ");
-    scanf("%f", &area1);
+    printf("PIB (em trilhões de dólares): ");
+    scanf("%f", &pais1.pib);
 
-    printf("Digite o PIB (em trilhões de dólares): ");
-    scanf("%f", &pib1);
+    printf("Área (em milhões de km²): ");
+    scanf("%f", &pais1.area);
 
-    printf("Digite o número de pontos turísticos famosos: ");
-    scanf("%d", &pontos1);
+    // Leitura dos dados do segundo país
+    printf("\nDigite o nome do segundo país (sem espaços): ");
+    scanf("%s", pais2.nome);
 
-    // Entrada de dados para o segundo país
-    printf("\nDigite o nome do segundo país: ");
-    scanf(" %[^\n]", nome2);
+    printf("População (em milhões): ");
+    scanf("%d", &pais2.populacao);
 
-    printf("Digite a população (em milhões): ");
-    scanf("%ld", &pop2);
+    printf("PIB (em trilhões de dólares): ");
+    scanf("%f", &pais2.pib);
 
-    printf("Digite a área (em milhões de km²): ");
-    scanf("%f", &area2);
+    printf("Área (em milhões de km²): ");
+    scanf("%f", &pais2.area);
 
-    printf("Digite o PIB (em trilhões de dólares): ");
-    scanf("%f", &pib2);
-
-    printf("Digite o número de pontos turísticos famosos: ");
-    scanf("%d", &pontos2);
-
-    // Exibindo as cartas dos países
-    printf("\n=== Cartas dos Países ===\n");
-    printf("\n%s\nPopulação: %ld milhões\nÁrea: %.2f milhões de km²\nPIB: %.2f trilhões\nPontos turísticos: %d\n",
-           nome1, pop1, area1, pib1, pontos1);
-    printf("\n%s\nPopulação: %ld milhões\nÁrea: %.2f milhões de km²\nPIB: %.2f trilhões\nPontos turísticos: %d\n",
-           nome2, pop2, area2, pib2, pontos2);
+    // Comparação do PIB
+    printf("\nComparando PIB:\n");
+    if (pais1.pib > pais2.pib) {
+        printf("%s tem o maior PIB!\n", pais1.nome);
+    } else if (pais2.pib > pais1.pib) {
+        printf("%s tem o maior PIB!\n", pais2.nome);
+    } else {
+        printf("Os dois países têm o mesmo PIB!\n");
+    }
 
     return 0;
 }
